@@ -1,104 +1,113 @@
----
-noteId: "cc64d310462511f1b4d72feb9f05749d"
-tags: []
+# 🚀 Smart Touch Dashboard
 
----
-
-#  Smart Touch Dashboard (ESP32-S3 + LVGL + SquareLine Vision)
+### ESP32-S3 • LVGL • SquareLine Vision • Embedded UI System
 
 ![Platform](https://img.shields.io/badge/ESP32--S3-CYD-blue)
 ![Framework](https://img.shields.io/badge/PlatformIO-Arduino-orange)
 ![UI](https://img.shields.io/badge/LVGL-9-purple)
 ![Status](https://img.shields.io/badge/status-active-success)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 ---
 
-##  Overview
+## 📱 Project Overview
 
-A modern **touchscreen dashboard UI** built for the **ESP32-S3 CYD 5-inch (800×480)** display using:
+**Smart Touch Dashboard** is a modern embedded UI system designed for the **ESP32-S3 CYD 5-inch (800×480)** touchscreen.
 
-* **LVGL (Light and Versatile Graphics Library)**
-* **SquareLine Vision v1.3.1**
-* **PlatformIO (Arduino framework)**
+It showcases how to build a **responsive, touch-driven interface** using:
 
-This project demonstrates a **real-time interactive embedded UI system** with touch input, device control, and scalable architecture for IoT applications.
+* **LVGL (Lightweight Graphics Library)**
+* **SquareLine Vision v1.3.1 (UI Design Tool)**
+* **PlatformIO (Professional Embedded Development)**
 
----
-
-## 🎥 Demo Video
-
-> Upload your video to GitHub (or YouTube) and replace the link below
-
-```text
-assets/demo/demo.mp4
-```
-
-Or embed like this (recommended for GitHub):
-
-```md
-https://github.com/Olawalekaybee/Smart_Touch_Dashboard_v3/assets/your-video-link
-```
+> 🎯 Goal: Build a scalable UI framework for real-world IoT dashboards (home automation, smart agriculture, industrial control).
 
 ---
 
-## ✨ Features
+## 🎥 Demo
 
-*  Beautiful UI designed with SquareLine Vision
-*  Touchscreen interaction (fully functional)
-*  Fan control switches (FAN 1, FAN 2, FAN 3)
-*  Scrollable roller menu (dynamic selection)
-*  Real-time event handling using LVGL
-*  Clean and modular project structure
-*  Serial debug output for interaction tracking
+👉 *(Click to watch demo)*
+https://github.com/Olawalekaybee/Smart_Touch_Dashboard_v3/assets/smart_Screen_demo.mp4
 
 ---
 
-## 🖼️ UI Preview
+## 🖼️ Live UI Preview
 
-> Replace with your uploaded screenshot
-
-```md
 ![Dashboard](assets/screenshots/dashboard.png)
+
+---
+
+## ✨ Key Features
+
+* 🎨 **Pixel-perfect UI** designed in SquareLine Vision
+* 👆 **Capacitive touch interaction** (smooth & responsive)
+* 🔘 **3 Fan control switches** (event-driven logic)
+* 📜 **Dynamic roller menu** (scroll + selection handling)
+* ⚡ **Real-time LVGL event system**
+* 🧱 **Modular architecture (clean & scalable)**
+* 📟 **Serial debugging for system feedback**
+
+---
+
+## 🧠 System Architecture
+
+```text
+User Touch
+    ↓
+Touch Driver (esp32_smartdisplay)
+    ↓
+LVGL Input System
+    ↓
+UI Object (Button / Switch / Roller)
+    ↓
+Event Callback (C / C++)
+    ↓
+Application Logic (Fan control, UI updates)
 ```
 
 ---
 
-## How It Works
+## 🔁 Event Flow Example
 
 ```text
-User Touch → LVGL detects input → Object identified → Event callback triggered → Action executed
-```
-
-Example:
-
-```text
-Switch toggle → LV_EVENT_VALUE_CHANGED → FAN_event() → Serial / Relay control
+User toggles FAN 1 switch
+        ↓
+LV_EVENT_VALUE_CHANGED triggered
+        ↓
+FAN1_event() executes
+        ↓
+State checked (ON/OFF)
+        ↓
+Serial output / Hardware action
 ```
 
 ---
 
-##  Project Structure
+## 🧩 Project Structure
 
 ```bash
 Smart_Touch_Dashboard_v3/
 │
 ├── src/
-│   ├── main.cpp
-│   └── gui/
-│       ├── screens/
-│       ├── assets/
-│       ├── behavior/
-│       ├── core/
-│       └── helpers/
+│   ├── main.cpp                # Application entry point
+│   └── gui/                    # SquareLine-generated UI
+│       ├── screens/            # UI screens
+│       ├── assets/             # Images, fonts
+│       ├── behavior/           # Events & animations
+│       ├── core/               # UI engine logic
+│       └── helpers/            # Utility functions
 │
-├── platformio.ini
+├── assets/
+│   └── screenshots/            # UI previews
+│
+├── platformio.ini              # Build configuration
 ├── README.md
 └── .gitignore
 ```
 
 ---
 
-## ⚙️ Setup Instructions
+## ⚙️ Getting Started
 
 ### 1. Clone the repository
 
@@ -107,25 +116,25 @@ git clone https://github.com/Olawalekaybee/Smart_Touch_Dashboard_v3.git
 cd Smart_Touch_Dashboard_v3
 ```
 
-### 2. Open in VS Code
+### 2. Open in VS Code (PlatformIO)
 
 ```bash
 code .
 ```
 
-### 3. Build
+### 3. Build firmware
 
 ```bash
 pio run
 ```
 
-### 4. Upload
+### 4. Upload to ESP32-S3
 
 ```bash
 pio run -t upload
 ```
 
-### 5. Monitor
+### 5. Monitor serial output
 
 ```bash
 pio device monitor
@@ -144,15 +153,15 @@ Roller selected: Thermostat
 
 ---
 
-##  Key Concepts
+## 🧠 Core Concepts
 
-### Event Binding
+### 🔹 Event Binding (LVGL)
 
 ```cpp
 lv_obj_add_event_cb(object, callback, LV_EVENT_VALUE_CHANGED, NULL);
 ```
 
-### Example
+### 🔹 Example
 
 ```cpp
 lv_obj_add_event_cb(
@@ -165,27 +174,44 @@ lv_obj_add_event_cb(
 
 ---
 
-## 🔌 Hardware
+## 🔌 Hardware Used
 
-* ESP32-S3 CYD (5-inch display)
-* 800×480 LCD
+* ESP32-S3 CYD (5-inch Touch Display)
+* 800×480 RGB LCD
 * Capacitive Touch Panel
 
 ---
 
 ## 🛠️ Tech Stack
 
-* PlatformIO
-* C++ (Arduino Framework)
-* LVGL 9
-* SquareLine Vision
-* ESP32-S3
+* **PlatformIO**
+* **C++ (Arduino Framework)**
+* **LVGL v9**
+* **SquareLine Vision**
+* **ESP32-S3**
+
+---
+
+## 🚀 Future Improvements
+
+* 🌡️ Sensor integration (Temperature / Humidity)
+* 🌐 WiFi connectivity + SSID display
+* 🔥 Firebase real-time database integration
+* ⚡ Relay control for real hardware switching
+* 📊 Data visualization (charts & graphs)
+* 📱 Mobile companion app (React Native)
 
 ---
 
 ## 🤝 Contributing
 
-Pull requests are welcome.
+Contributions are welcome.
+
+If you’d like to improve the project:
+
+1. Fork the repo
+2. Create a feature branch
+3. Submit a pull request
 
 ---
 
@@ -203,4 +229,4 @@ MIT License
 
 ## ⭐ Support
 
-If you like this project, give it a ⭐ on GitHub!
+If this project helped you or inspired you, consider giving it a ⭐ on GitHub.
