@@ -1,3 +1,11 @@
+
+
+https://github.com/user-attachments/assets/a02f65d8-917c-4cdf-bf02-8899219281f5
+
+
+
+https://github.com/user-attachments/assets/cd75b95a-fd76-4482-a7a9-52acd397da38
+
 # 🚀 Smart Touch Dashboard
 
 ### ESP32-S3 • LVGL • SquareLine Vision • Embedded UI System
